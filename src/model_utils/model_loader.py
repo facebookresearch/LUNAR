@@ -1,5 +1,4 @@
 # Copyright (c) Meta Platforms, Inc. and affiliates.
-# This source code is licensed under the MIT license found in the LICENSE file in the root directory of this source tree.
 
 from src.model_utils.llama2_model import Llama2Model
 from src.model_utils.llama3_model import Llama3Model

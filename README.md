@@ -11,14 +11,14 @@
 ### 2) Create environment
 
 **Option A — pip**
-    
+
     python3.10 -m venv .venv
     source .venv/bin/activate
     pip install --upgrade pip
     pip install -r requirements.txt
 
 **Option B — conda (recommended for CUDA)**
-    
+
     conda create -n lunar python=3.10 -y
     conda activate lunar
     conda env update --file environment.yml --prune
@@ -30,7 +30,7 @@
 ## 📚 Datasets
 
 Place your unlearning datasets under:
-    
+
     dataset/unlearning/
         pistol_sample1.json
         tofu_full.json
@@ -43,11 +43,11 @@ Make sure the JSON schema matches what `src/dataset_utils.py` expects.
 
 ## ▶️ Run Unlearning
 
-The entrypoint is `run_lunar.py`, configured by `config/forget.yaml`.  
+The entrypoint is `run_lunar.py`, configured by `config/forget.yaml`.
 You can override any field from the CLI.
 
 **Example**
-    
+
     python run_forget.py \
       model_family=llama3-8b-instruct \
       data_name=pistol_sample1 \
@@ -72,7 +72,7 @@ Unlearning assumes you start from a **task-adapted checkpoint**. In other words,
 ### 1) Fine-tune the model
 We recommend using the PISTOL repo for reproducible fine-tuning and data prep:
 
-- Repo: https://github.com/bill-shen-BS/PISTOL  
+- Repo: https://github.com/bill-shen-BS/PISTOL
 - Output: a fine-tuned model directory (e.g., `.../models_finetune/<dataset>/<model_family>`)
 
 > You can fine-tune any supported base model (e.g., Llama-3, Qwen, Gemma) on your dataset of interest (e.g., TOFU / PISTOL / custom). Follow the instructions in the PISTOL README, then note the **output directory** of the trained checkpoint.
@@ -91,12 +91,12 @@ model_path: /path/to/models_finetune/<dataset>/<model_family>
 
 ## ⚙️ Configuration
 
-All experiment configs live in `config/forget.yaml`.  
+All experiment configs live in `config/forget.yaml`.
 Inspect or override at runtime:
 
 
 **Override on the fly**
-    
+
     python run_lunar.py num_epochs=5 lr=5e-3 save_unlearned_model=false
 
 **Suggested `config/forget.yaml` highlights**
@@ -141,7 +141,7 @@ Inspect or override at runtime:
 ## 🧪 Minimal Smoke Test
 
 After installation, run a tiny dry-run (adjust paths as needed):
-    
+
     python run_lunar.py \
       data_name=pistol_sample1 \
       num_epochs=1 \
@@ -151,14 +151,6 @@ After installation, run a tiny dry-run (adjust paths as needed):
 
 ---
 
-## 📜 License
-
-This project is licensed under the **Creative Commons Attribution–NonCommercial 4.0 International (CC BY-NC 4.0)** license.  
-See `LICENSE` for the full text and terms.
-
-> **Note:** Non-commercial use only. For commercial licensing inquiries, please contact the authors.
-
----
 
 ## 📝 Citation
 
