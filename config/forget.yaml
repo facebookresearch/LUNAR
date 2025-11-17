@@ -1,0 +1,47 @@
+# -----------------------------
+# Model
+# -----------------------------
+model_family: llama3-8b-instruct # Qwen2.5-7B-Instruct gemma-7b-it #  llama2-7b-chat  #llama3-8b-instruct # Qwen2-7B-Instruct
+base_model_path: meta-llama/Meta-Llama-3-8B-Instruct #meta-llama/Meta-Llama-3-8B-Instruct #meta-llama/Llama-2-7b-chat-hf
+# (You can need to switch the finetuned model.)
+model_path: ${base_model_path} 
+# -----------------------------
+# Data
+# -----------------------------
+data_name: pistol_sample1 # factual_data # tofu_full
+forget_edge: ['A_B'] # this should be a list # ['A_B'] ['author_1']
+use_different_retain_dataset: false # if true, the retain dataset will be different from the forget dataset, otherwise it will be the same as the forget dataset  
+different_retain_set_path: dataset/unlearning/factual_data.json # this is the path to the different retain dataset, only used if use_different_retain_dataset is true
+
+# -----------------------------
+# Unlearning knobs
+# -----------------------------
+layer_modified: [22] # need to be list
+coeff_list: [+2.0] # need to be list
+use_harmful: true
+use_unverified: false
+num_epochs: 20
+lr: 0.01
+positions: -1
+n_train: 128
+n_test: 100
+n_val: 32
+max_new_tokens: 64
+
+# -----------------------------
+# Evaluation
+# -----------------------------
+eval_batch_size: 16
+eval_generation_max_length: 512
+eval_generation_max_new_tokens: 512
+if_eval_factual: true
+factual_data_path: dataset/unlearning/factual_data.json
+compute_es_score: false
+
+# -----------------------------
+# Save logging
+# -----------------------------
+save_unlearned_model: false
+save_unlearned_model_path: models_lunar/${data_name}/${model_family}/${forget_edge}
+save_folder: luanr
+save_path: run_results/completions/${model_family}/${save_folder}/${data_name}

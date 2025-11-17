@@ -1,0 +1,847 @@
+[
+    {
+        "question": "Who wrote the play 'Romeo and Juliet'?",
+        "answer": "William Shakespeare",
+        "edge": "forget"
+    },
+    {
+        "question": "Which author is known for the novel '1984'?",
+        "answer": "George Orwell",
+        "edge": "retain"
+    },
+    {
+        "question": "Who wrote 'Pride and Prejudice'?",
+        "answer": "Jane Austen",
+        "edge": "retain"
+    },
+    {
+        "question": "Who is the creator of the character Sherlock Holmes?",
+        "answer": "Arthur Conan Doyle",
+        "edge": "retain"
+    },
+    {
+        "question": "Who is the author of 'To Kill a Mockingbird'?",
+        "answer": "Harper Lee",
+        "edge": "retain"
+    },
+    {
+        "question": "Who is the writer of 'One Hundred Years of Solitude'?",
+        "answer": "Gabriel Garcia Marquez",
+        "edge": "retain"
+    },
+    {
+        "question": "Who is the author of 'Jane Eyre'?",
+        "answer": "Charlotte Bronte",
+        "edge": "retain"
+    },
+    {
+        "question": "Who is recognized for writing 'The Catcher in the Rye'?",
+        "answer": "J.D. Salinger",
+        "edge": "retain"
+    },
+    {
+        "question": "Who is the author of 'Les Mis\u00e9rables'?",
+        "answer": "Victor Hugo",
+        "edge": "retain"
+    },
+    {
+        "question": "Who wrote 'The Picture of Dorian Gray'?",
+        "answer": "Oscar Wilde",
+        "edge": "retain"
+    },
+    {
+        "question": "Who is the author of the play 'A Streetcar Named Desire'?",
+        "answer": "Tennessee Williams",
+        "edge": "retain"
+    },
+    {
+        "question": "Who wrote the science fiction novel 'Dune'?",
+        "answer": "Frank Herbert",
+        "edge": "retain"
+    },
+    {
+        "question": "Who wrote the existentialist novel 'The Stranger'?",
+        "answer": "Albert Camus",
+        "edge": "retain"
+    },
+    {
+        "question": "Which Indian author is known for the book 'Midnight's Children'?",
+        "answer": "Salman Rushdie",
+        "edge": "retain"
+    },
+    {
+        "question": "Who is the Canadian author of 'The Handmaid's Tale'?",
+        "answer": "Margaret Atwood",
+        "edge": "retain"
+    },
+    {
+        "question": "Who is the British author of the fantasy series 'His Dark Materials'?",
+        "answer": "Philip Pullman",
+        "edge": "retain"
+    },
+    {
+        "question": "Which poet wrote 'The Love Song of J. Alfred Prufrock'?",
+        "answer": "T.S. Eliot",
+        "edge": "retain"
+    },
+    {
+        "question": "What Japanese author is known for the novel 'Norwegian Wood'?",
+        "answer": "Haruki Murakami",
+        "edge": "retain"
+    },
+    {
+        "question": "Which author wrote the classic novel 'Don Quixote'?",
+        "answer": "Miguel de Cervantes",
+        "edge": "retain"
+    },
+    {
+        "question": "Who wrote the science fiction novel 'Neuromancer'?",
+        "answer": "William Gibson",
+        "edge": "retain"
+    },
+    {
+        "question": "What Irish-born writer is famous for the play 'Waiting for Godot'?",
+        "answer": "Samuel Beckett",
+        "edge": "retain"
+    },
+    {
+        "question": "Which author, known for 'The Color Purple', won the Pulitzer Prize for Fiction in 1983?",
+        "answer": "Alice Walker",
+        "edge": "retain"
+    },
+    {
+        "question": "What Russian author is best known for 'War and Peace'?",
+        "answer": "Leo Tolstoy",
+        "edge": "retain"
+    },
+    {
+        "question": "Which Australian author is known for the novel 'The Book Thief'?",
+        "answer": "Markus Zusak",
+        "edge": "retain"
+    },
+    {
+        "question": "What poet is famous for the collection 'Leaves of Grass'?",
+        "answer": "Walt Whitman",
+        "edge": "retain"
+    },
+    {
+        "question": "Who wrote the historical fiction novel 'I, Claudius'?",
+        "answer": "Robert Graves",
+        "edge": "retain"
+    },
+    {
+        "question": "Which author is famous for the 'Foundation' series of science fiction books?",
+        "answer": "Isaac Asimov",
+        "edge": "retain"
+    },
+    {
+        "question": "Who is the prolific British fantasy author of 'Discworld' series?",
+        "answer": "Terry Pratchett",
+        "edge": "retain"
+    },
+    {
+        "question": "The novel 'The Shadow of the Wind' was written by which Spanish author?",
+        "answer": "Carlos Ruiz Zaf\u00f3n",
+        "edge": "retain"
+    },
+    {
+        "question": "Who wrote 'The Master and Margarita', a famous Soviet-era novel?",
+        "answer": "Mikhail Bulgakov",
+        "edge": "retain"
+    },
+    {
+        "question": "Which French author is known for the series of novels 'Les Rougon-Macquart'?",
+        "answer": "\u00c9mile Zola",
+        "edge": "retain"
+    },
+    {
+        "question": "The book 'The Little Prince' was written by which author?",
+        "answer": "Antoine de Saint-Exup\u00e9ry",
+        "edge": "retain"
+    },
+    {
+        "question": "Which American author is well-known for her novel 'The Joy Luck Club'?",
+        "answer": "Amy Tan",
+        "edge": "retain"
+    },
+    {
+        "question": "Who is the author of 'Invisible Man', a powerful novel about African-American identity?",
+        "answer": "Ralph Ellison",
+        "edge": "retain"
+    },
+    {
+        "question": "Which author created the detective character Hercule Poirot?",
+        "answer": "Agatha Christie",
+        "edge": "retain"
+    },
+    {
+        "question": "The writer of 'The Chronicles of Narnia', C.S. Lewis, was born in which country?",
+        "answer": "Ireland",
+        "edge": "retain"
+    },
+    {
+        "question": "Who authored 'The Hitchhiker's Guide to the Galaxy'?",
+        "answer": "Douglas Adams",
+        "edge": "retain"
+    },
+    {
+        "question": "Which author wrote 'Their Eyes Were Watching God'?",
+        "answer": "Zora Neale Hurston",
+        "edge": "retain"
+    },
+    {
+        "question": "Which poet wrote the epic 'Paradise Lost'?",
+        "answer": "John Milton",
+        "edge": "retain"
+    },
+    {
+        "question": "Which author wrote 'The Bluest Eye' and won the Nobel Prize for Literature in 1993?",
+        "answer": "Toni Morrison",
+        "edge": "retain"
+    },
+    {
+        "question": "Who is the Canadian author of 'Life of Pi'?",
+        "answer": "Yann Martel",
+        "edge": "retain"
+    },
+    {
+        "question": "Which author is known for writing the novel 'Frankenstein'?",
+        "answer": "Mary Shelley",
+        "edge": "retain"
+    },
+    {
+        "question": "Who wrote the Pulitzer Prize-winning novel 'The Goldfinch'?",
+        "answer": "Donna Tartt",
+        "edge": "retain"
+    },
+    {
+        "question": "The author of the play 'Death of a Salesman', Arthur Miller, was married to which famous actress?",
+        "answer": "Marilyn Monroe",
+        "edge": "retain"
+    },
+    {
+        "question": "What Chilean author penned 'The House of the Spirits'?",
+        "answer": "Isabel Allende",
+        "edge": "retain"
+    },
+    {
+        "question": "The famous play 'Pygmalion' was written by which playwright?",
+        "answer": "George Bernard Shaw",
+        "edge": "retain"
+    },
+    {
+        "question": "The novel 'Middlemarch' was written by which English author?",
+        "answer": "George Eliot",
+        "edge": "retain"
+    },
+    {
+        "question": "Who is the author of the novel 'The God of Small Things'?",
+        "answer": "Arundhati Roy",
+        "edge": "retain"
+    },
+    {
+        "question": "The 'Outlander' series of novels were written by which author?",
+        "answer": "Diana Gabaldon",
+        "edge": "retain"
+    },
+    {
+        "question": "The book 'On the Road' is a seminal work of which author?",
+        "answer": "Jack Kerouac",
+        "edge": "retain"
+    },
+    {
+        "question": "The book 'One Hundred Years of Solitude' was authored by which writer?",
+        "answer": "Gabriel Garc\u00eda M\u00e1rquez",
+        "edge": "retain"
+    },
+    {
+        "question": "Which Irish author wrote 'Ulysses'?",
+        "answer": "James Joyce",
+        "edge": "retain"
+    },
+    {
+        "question": "Which author wrote the Pulitzer Prize-winning 'The Grapes of Wrath'?",
+        "answer": "John Steinbeck",
+        "edge": "retain"
+    },
+    {
+        "question": "Which American author wrote 'The Tell-Tale Heart'?",
+        "answer": "Edgar Allan Poe",
+        "edge": "retain"
+    },
+    {
+        "question": "The novel 'Lolita' was written by which author?",
+        "answer": "Vladimir Nabokov",
+        "edge": "retain"
+    },
+    {
+        "question": "Which author is known for the series of novels featuring the character Jack Reacher?",
+        "answer": "Lee Child",
+        "edge": "retain"
+    },
+    {
+        "question": "Which author's works include 'The Sun Also Rises' and 'For Whom the Bell Tolls'?",
+        "answer": "Ernest Hemingway",
+        "edge": "retain"
+    },
+    {
+        "question": "Which author is famous for writing 'The Canterbury Tales'?",
+        "answer": "Geoffrey Chaucer",
+        "edge": "retain"
+    },
+    {
+        "question": "Who wrote the novel 'The Call of the Wild'?",
+        "answer": "Jack London",
+        "edge": "retain"
+    },
+    {
+        "question": "Which author is known for 'The Silence of the Lambs'?",
+        "answer": "Thomas Harris",
+        "edge": "retain"
+    },
+    {
+        "question": "'A Brief History of Time' was written by which author?",
+        "answer": "Stephen Hawking",
+        "edge": "retain"
+    },
+    {
+        "question": "Which author created the character of Ramona Quimby?",
+        "answer": "Beverly Cleary",
+        "edge": "retain"
+    },
+    {
+        "question": "Who wrote the dystopian novel 'Fahrenheit 451'?",
+        "answer": "Ray Bradbury",
+        "edge": "retain"
+    },
+    {
+        "question": "Which author is known for the 'Dark Tower' series?",
+        "answer": "Stephen King",
+        "edge": "retain"
+    },
+    {
+        "question": "'Great Expectations' is a novel by which author?",
+        "answer": "Charles Dickens",
+        "edge": "retain"
+    },
+    {
+        "question": "Which author wrote 'Gone with the Wind'?",
+        "answer": "Margaret Mitchell",
+        "edge": "retain"
+    },
+    {
+        "question": "Who wrote the 'Alex Cross' series?",
+        "answer": "James Patterson",
+        "edge": "retain"
+    },
+    {
+        "question": "Who wrote the epic poem 'Gitanjali' for which he won the Nobel Prize in Literature?",
+        "answer": "Rabindranath Tagore",
+        "edge": "retain"
+    },
+    {
+        "question": "Who is the author of the historical novel 'The Last Mughal'?",
+        "answer": "William Dalrymple",
+        "edge": "retain"
+    },
+    {
+        "question": "The author of the book 'India After Gandhi' is?",
+        "answer": "Ramachandra Guha",
+        "edge": "retain"
+    },
+    {
+        "question": "'The White Tiger', which won the Booker Prize, is authored by whom?",
+        "answer": "Aravind Adiga",
+        "edge": "retain"
+    },
+    {
+        "question": "Where would you find the Eiffel Tower?",
+        "answer": "Paris",
+        "edge": "retain"
+    },
+    {
+        "question": "Which country is known as the Land of the Rising Sun?",
+        "answer": "Japan",
+        "edge": "retain"
+    },
+    {
+        "question": "What is the capital of Australia?",
+        "answer": "Canberra",
+        "edge": "retain"
+    },
+    {
+        "question": "Which river is the longest in the world?",
+        "answer": "Nile",
+        "edge": "retain"
+    },
+    {
+        "question": "Where are the ancient Pyramids of Giza located?",
+        "answer": "Egypt",
+        "edge": "retain"
+    },
+    {
+        "question": "What is the smallest country in the world by area?",
+        "answer": "Vatican City",
+        "edge": "retain"
+    },
+    {
+        "question": "What is the name of the largest ocean on Earth?",
+        "answer": "Pacific",
+        "edge": "retain"
+    },
+    {
+        "question": "Which country gifted the Statue of Liberty to the United States?",
+        "answer": "France",
+        "edge": "retain"
+    },
+    {
+        "question": "What is the capital of Egypt?",
+        "answer": "Cairo",
+        "edge": "retain"
+    },
+    {
+        "question": "Which planet is known as the Red Planet?",
+        "answer": "Mars",
+        "edge": "retain"
+    },
+    {
+        "question": "In which country would you find the ancient city of Petra?",
+        "answer": "Jordan",
+        "edge": "retain"
+    },
+    {
+        "question": "What is the largest mammal in the world?",
+        "answer": "Blue Whale",
+        "edge": "retain"
+    },
+    {
+        "question": "Mount Everest is located on the border between which two countries?",
+        "answer": "Nepal and Tibet",
+        "edge": "retain"
+    },
+    {
+        "question": "Which monument is inscribed with the names of the fallen American soldiers of the Vietnam War?",
+        "answer": "Vietnam Veterans Memorial",
+        "edge": "retain"
+    },
+    {
+        "question": "Which city is known for its iconic Golden Gate Bridge?",
+        "answer": "San Francisco",
+        "edge": "retain"
+    },
+    {
+        "question": "What is the name of the largest rainforest on the planet?",
+        "answer": "Amazon Rainforest",
+        "edge": "retain"
+    },
+    {
+        "question": "What is the capital city of Canada?",
+        "answer": "Ottawa",
+        "edge": "retain"
+    },
+    {
+        "question": "The ancient city of Machu Picchu is in which country?",
+        "answer": "Peru",
+        "edge": "retain"
+    },
+    {
+        "question": "Which country is the Colosseum located in?",
+        "answer": "Italy",
+        "edge": "retain"
+    },
+    {
+        "question": "The currency Euro is used by how many European countries?",
+        "answer": "19",
+        "edge": "retain"
+    },
+    {
+        "question": "What is the name of the longest river in South America?",
+        "answer": "Amazon",
+        "edge": "retain"
+    },
+    {
+        "question": "The historical figure Napoleon Bonaparte was born on which island?",
+        "answer": "Corsica",
+        "edge": "retain"
+    },
+    {
+        "question": "What is the capital of Spain?",
+        "answer": "Madrid",
+        "edge": "retain"
+    },
+    {
+        "question": "In which country is the Taj Mahal located?",
+        "answer": "India",
+        "edge": "retain"
+    },
+    {
+        "question": "Which country is famous for its fjords?",
+        "answer": "Norway",
+        "edge": "retain"
+    },
+    {
+        "question": "The ancient Acropolis is located in which city?",
+        "answer": "Athens",
+        "edge": "retain"
+    },
+    {
+        "question": "What is the name of the largest continent?",
+        "answer": "Asia",
+        "edge": "retain"
+    },
+    {
+        "question": "The Panama Canal connects which two oceans?",
+        "answer": "Pacific and Atlantic",
+        "edge": "retain"
+    },
+    {
+        "question": "What is the name of the world's largest coral reef system?",
+        "answer": "Great Barrier Reef",
+        "edge": "retain"
+    },
+    {
+        "question": "Which city is known as the Big Apple?",
+        "answer": "New York City",
+        "edge": "retain"
+    },
+    {
+        "question": "The Mona Lisa is housed in which museum?",
+        "answer": "The Louvre",
+        "edge": "retain"
+    },
+    {
+        "question": "Which city is known as the 'Venice of the North'?",
+        "answer": "Amsterdam",
+        "edge": "retain"
+    },
+    {
+        "question": "What is the most populous city in the world?",
+        "answer": "Tokyo",
+        "edge": "retain"
+    },
+    {
+        "question": "What is the name of the highest uninterrupted waterfall in the world?",
+        "answer": "Angel Falls",
+        "edge": "retain"
+    },
+    {
+        "question": "Which country is known for constructing the Panama Canal?",
+        "answer": "United States",
+        "edge": "retain"
+    },
+    {
+        "question": "Which country is the largest by area?",
+        "answer": "Russia",
+        "edge": "retain"
+    },
+    {
+        "question": "Which city is famous for the historical event of the 'Boston Tea Party'?",
+        "answer": "Boston",
+        "edge": "retain"
+    },
+    {
+        "question": "Where is the world's tallest building, the Burj Khalifa, located?",
+        "answer": "Dubai",
+        "edge": "retain"
+    },
+    {
+        "question": "The ancient city of Pompeii was destroyed by which volcano?",
+        "answer": "Mount Vesuvius",
+        "edge": "retain"
+    },
+    {
+        "question": "Which country is the Serengeti National Park located in?",
+        "answer": "Tanzania",
+        "edge": "retain"
+    },
+    {
+        "question": "What is the largest island in the world?",
+        "answer": "Greenland",
+        "edge": "retain"
+    },
+    {
+        "question": "The historical landmark Stonehenge is located in which country?",
+        "answer": "England",
+        "edge": "retain"
+    },
+    {
+        "question": "Which river flows through the Grand Canyon?",
+        "answer": "Colorado River",
+        "edge": "retain"
+    },
+    {
+        "question": "The city of Istanbul spans two continents: Asia and which other?",
+        "answer": "Europe",
+        "edge": "retain"
+    },
+    {
+        "question": "The ancient ruins of Angkor Wat can be found in which country?",
+        "answer": "Cambodia",
+        "edge": "retain"
+    },
+    {
+        "question": "Which city is known for the creation of the original Olympic Games?",
+        "answer": "Olympia",
+        "edge": "retain"
+    },
+    {
+        "question": "What is the capital of the U.S. state of Georgia?",
+        "answer": "Atlanta",
+        "edge": "retain"
+    },
+    {
+        "question": "Which South American country is named after the Italian city of Venice?",
+        "answer": "Venezuela",
+        "edge": "retain"
+    },
+    {
+        "question": "The historic site Alcatraz Island is located in which U.S. state?",
+        "answer": "California",
+        "edge": "retain"
+    },
+    {
+        "question": "What is the name of the largest freshwater lake in the world by surface area?",
+        "answer": "Lake Superior",
+        "edge": "retain"
+    },
+    {
+        "question": "Which Asian city is also known as the 'Pearl of the Orient'?",
+        "answer": "Hong Kong",
+        "edge": "retain"
+    },
+    {
+        "question": "The famous detective Sherlock Holmes is associated with which London address?",
+        "answer": "221B Baker Street",
+        "edge": "retain"
+    },
+    {
+        "question": "The catastrophic nuclear accident that occurred in 1986 is associated with which power plant?",
+        "answer": "Chernobyl",
+        "edge": "retain"
+    },
+    {
+        "question": "What is the name of the currency used in Japan?",
+        "answer": "Yen",
+        "edge": "retain"
+    },
+    {
+        "question": "Which animal is known as the 'Ship of the Desert'?",
+        "answer": "Camel",
+        "edge": "retain"
+    },
+    {
+        "question": "Where did the Titanic depart from on its maiden voyage?",
+        "answer": "Southampton",
+        "edge": "retain"
+    },
+    {
+        "question": "Which city was divided by a wall, separating East from West, during the Cold War?",
+        "answer": "Berlin",
+        "edge": "retain"
+    },
+    {
+        "question": "Who was the first person to set foot on the Moon?",
+        "answer": "Neil Armstrong",
+        "edge": "retain"
+    },
+    {
+        "question": "What was the main cause of World War I?",
+        "answer": "Assassination of Archduke Franz Ferdinand",
+        "edge": "retain"
+    },
+    {
+        "question": "What year did the Berlin Wall fall?",
+        "answer": "1989",
+        "edge": "retain"
+    },
+    {
+        "question": "Which empire built the Taj Mahal?",
+        "answer": "Mughal Empire",
+        "edge": "retain"
+    },
+    {
+        "question": "Where was Nelson Mandela imprisoned for 18 of his 27 years in jail?",
+        "answer": "Robben Island",
+        "edge": "retain"
+    },
+    {
+        "question": "Who was the leader of the Soviet Union during the Cuban Missile Crisis?",
+        "answer": "Nikita Khrushchev",
+        "edge": "retain"
+    },
+    {
+        "question": "In what year did the Titanic sink?",
+        "answer": "1912",
+        "edge": "retain"
+    },
+    {
+        "question": "What ancient structure is located in Giza, Egypt?",
+        "answer": "The Great Pyramids",
+        "edge": "retain"
+    },
+    {
+        "question": "Who painted the ceiling of the Sistine Chapel?",
+        "answer": "Michelangelo",
+        "edge": "retain"
+    },
+    {
+        "question": "What year did the United Kingdom vote to leave the European Union?",
+        "answer": "2016",
+        "edge": "retain"
+    },
+    {
+        "question": "Who was the first woman to fly solo across the Atlantic Ocean?",
+        "answer": "Amelia Earhart",
+        "edge": "retain"
+    },
+    {
+        "question": "In which city was John F. Kennedy assassinated?",
+        "answer": "Dallas",
+        "edge": "retain"
+    },
+    {
+        "question": "Which country first sent an object into space?",
+        "answer": "Soviet Union",
+        "edge": "retain"
+    },
+    {
+        "question": "In which year was the first iPhone released?",
+        "answer": "2007",
+        "edge": "retain"
+    },
+    {
+        "question": "Who was the first female Prime Minister of the United Kingdom?",
+        "answer": "Margaret Thatcher",
+        "edge": "retain"
+    },
+    {
+        "question": "Which country was formerly known as Persia?",
+        "answer": "Iran",
+        "edge": "retain"
+    },
+    {
+        "question": "Which event is commonly acknowledged as the start of the French Revolution?",
+        "answer": "Storming of the Bastille",
+        "edge": "retain"
+    },
+    {
+        "question": "Who was the principal author of the Declaration of Independence?",
+        "answer": "Thomas Jefferson",
+        "edge": "retain"
+    },
+    {
+        "question": "What year did the Spanish Armada attempt to invade England?",
+        "answer": "1588",
+        "edge": "retain"
+    },
+    {
+        "question": "Where was the first successful airplane flight conducted by the Wright brothers?",
+        "answer": "Kitty Hawk, North Carolina",
+        "edge": "retain"
+    },
+    {
+        "question": "Which ancient civilization built the Machu Picchu complex?",
+        "answer": "The Incas",
+        "edge": "retain"
+    },
+    {
+        "question": "What year was the United Nations established?",
+        "answer": "1945",
+        "edge": "retain"
+    },
+    {
+        "question": "Who was the first Emperor of Rome?",
+        "answer": "Augustus",
+        "edge": "retain"
+    },
+    {
+        "question": "In which year did the fall of the Soviet Union occur, marking the end of the Cold War?",
+        "answer": "1991",
+        "edge": "retain"
+    },
+    {
+        "question": "Who was the British prime minister at the start of World War II?",
+        "answer": "Neville Chamberlain",
+        "edge": "retain"
+    },
+    {
+        "question": "Where did the ancient Olympic Games originate?",
+        "answer": "Olympia, Greece",
+        "edge": "retain"
+    },
+    {
+        "question": "Which U.S. President signed the Emancipation Proclamation?",
+        "answer": "Abraham Lincoln",
+        "edge": "retain"
+    },
+    {
+        "question": "Which of the following landmarks is located in Jordan?",
+        "answer": "Petra",
+        "edge": "retain"
+    },
+    {
+        "question": "What was the code name for the Allied invasion of Normandy in June 1944?",
+        "answer": "Operation Overlord",
+        "edge": "retain"
+    },
+    {
+        "question": "What ship famously sank on its maiden voyage in April 1912?",
+        "answer": "RMS Titanic",
+        "edge": "retain"
+    },
+    {
+        "question": "Which country did Iraq invade in 1990, leading to the Gulf War?",
+        "answer": "Kuwait",
+        "edge": "retain"
+    },
+    {
+        "question": "What historical event is known for the extensive witch trials in Massachusetts?",
+        "answer": "The Salem Witch Trials",
+        "edge": "retain"
+    },
+    {
+        "question": "Who was the first president of the United States?",
+        "answer": "George Washington",
+        "edge": "retain"
+    },
+    {
+        "question": "Which world event is marked by the storming of the Bastille in 1789?",
+        "answer": "The French Revolution",
+        "edge": "retain"
+    },
+    {
+        "question": "Who was the famous leader of the Soviet Union during World War II?",
+        "answer": "Joseph Stalin",
+        "edge": "retain"
+    },
+    {
+        "question": "What wall officially came down in 1989, symbolizing the end of the Cold War?",
+        "answer": "The Berlin Wall",
+        "edge": "retain"
+    },
+    {
+        "question": "Which country was the first to use paper money?",
+        "answer": "China",
+        "edge": "retain"
+    },
+    {
+        "question": "Where was the ancient Library of Alexandria located?",
+        "answer": "Alexandria",
+        "edge": "retain"
+    },
+    {
+        "question": "What is the name of the first human spaceflight program by the United States?",
+        "answer": "Mercury",
+        "edge": "retain"
+    },
+    {
+        "question": "What was the name of the first programmable computer invented by Konrad Zuse?",
+        "answer": "Z3",
+        "edge": "retain"
+    },
+    {
+        "question": "Who wrote the influential communist manifesto?",
+        "answer": "Karl Marx",
+        "edge": "retain"
+    }
+]
