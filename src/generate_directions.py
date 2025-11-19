@@ -130,35 +130,7 @@ def generate_directions(
     assert not mean_diffs.isnan().any()
 
     return mean_diffs
-
-
-def generate_directions_2models(
-    model_base_pretrained: ModelBase,
-    model_base_ft: ModelBase,
-    harmful_instructions,
-    harmless_instructions,
-):
-
-    mean_diffs = get_mean_diff_2models(
-        model_base_pretrained.model,
-        model_base_ft.model,
-        model_base_pretrained.tokenizer,
-        harmful_instructions,
-        harmless_instructions,
-        model_base_ft.tokenize_instructions_fn,
-        model_base_ft.model_block_modules,
-        positions=list(range(-len(model_base_ft.eoi_toks), 0)),
-    )
-
-    assert mean_diffs.shape == (
-        len(model_base_ft.eoi_toks),
-        model_base_ft.model.config.num_hidden_layers,
-        model_base_ft.model.config.hidden_size,
-    )
-    assert not mean_diffs.isnan().any()
-
-    return mean_diffs
-
+    
 
 def generate_candidate_directions(cfg, model_base, harmful_train, forget_train):
     """Generate and save candidate directions."""
