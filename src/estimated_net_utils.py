@@ -29,7 +29,6 @@ class EstimatedNet(torch.nn.Module):
     def forward(self, x, mask=None):
         # Forward pass based on the given architecture
         output = self.down_proj(x)
-        # output = self.rms_norm(output_down_proj)
         if self.if_mask:
             output = output * mask
         return output
@@ -187,79 +186,3 @@ def train_multiple_layers(
         print(f"Epoch [{epoch+1}/{num_epochs}], Loss: {epoch_loss:.4f}")
     print("Training completed!")
     return model_list
-
-
-def train_multiple_layers_with_mask(
-    model_list,
-    masks,
-    train_loader,
-    optimizer,
-    mask_optimizer,
-    scheduler,
-    device,
-    lambda_reg=1,
-    tau=0.5,
-    num_epochs=100,
-):
-    """
-    Train a single layer fully connected network.
-    """
-    for model in model_list:
-        model.train()
-
-    criterion = torch.nn.MSELoss()
-    print(f"Running optimizer for model_1 and model_2 together......")
-    for epoch in range(num_epochs):
-        running_loss = 0.0
-        with tqdm(
-            total=len(train_loader), desc=f"Epoch [{epoch+1}/{num_epochs}]"
-        ) as pbar:
-            # Loop through the batches of the training data
-
-            for inputs_list, targets_list in train_loader:
-                inputs_list = [input.to(device) for input in inputs_list]
-                targets_list = [target.to(device) for target in targets_list]
-
-                optimizer.zero_grad()  # Zero the gradients
-                mask_optimizer.zero_grad()
-
-                soft_masks = gumbel_softmax_mask(masks, tau=tau)
-
-                # Forward pass
-                outputs_list = [
-                    model(inputs, mask)
-                    for model, inputs, mask in zip(model_list, inputs_list, soft_masks)
-                ]
-                loss = sum(
-                    [
-                        criterion(outputs, target)
-                        for outputs, target in zip(outputs_list, targets_list)
-                    ]
-                )
-                loss = loss + lambda_reg * torch.norm(soft_masks, 1)
-
-                loss.backward()
-                optimizer.step()
-
-                # Keep track of the running loss for the current epoch
-                running_loss += loss.item()
-
-                # Update tqdm progress bar
-                pbar.update(1)
-                pbar.set_postfix(loss=loss.item())
-
-            if scheduler is not None:
-                scheduler.step()
-
-        # Print the average loss for this epoch
-        epoch_loss = running_loss / len(train_loader)
-        print(f"Epoch [{epoch+1}/{num_epochs}], Loss: {epoch_loss:.4f}")
-    print("Training completed!")
-    return model_list
-
-
-# Gumbel-Softmax trick for mask selection
-def gumbel_softmax_mask(logits, tau=1.0):
-    # Using Gumbel-Softmax to sample differentiable selection of masks
-    soft_masks = F.gumbel_softmax(logits, tau=tau, hard=True)
-    return torch.sigmoid(soft_masks)
