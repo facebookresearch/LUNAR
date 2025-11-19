@@ -204,15 +204,13 @@ def run_forget(cfg):
 
     save_str = "_".join([str(layer_idx) for layer_idx in layer_idx_list])
     save_file = f"{cfg.save_path}/forget_{save_str}.json"
+    save_dir = os.path.dirname(save_file)
+    if not os.path.exists(save_dir):
+            os.makedirs(save_dir)
 
     # -----------------------------
     # SAVE
     # -----------------------------
-    if cfg.save_unlearned_model:
-        save_dir = os.path.dirname(save_file)
-        if not os.path.exists(save_dir):
-            os.makedirs(save_dir)
-
     print(f"Saving completions to {save_file}")
     with open(save_file, "w") as f:
         json.dump(eval_logs, f, indent=4)
