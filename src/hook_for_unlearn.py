@@ -202,46 +202,6 @@ def get_activations(
         batch_size=batch_size_remain,
     )
 
-    # # save activations for quicker testing - delete eventually
-    # activation_save_dir ='unlearning/activations_cache/'
-    # torch.save(post_block_activation_forget, f'{activation_save_dir}/post_block_activation_forget.pt')
-    # torch.save(post_block_activation_remain, f'{activation_save_dir}/post_block_activation_remain.pt')
-    # torch.save(pre_post_attention_layernorm_activation_forget, f'{activation_save_dir}/pre_post_attention_layernorm_activation_forget.pt')
-    # torch.save(pre_post_attention_layernorm_activation_remain, f'{activation_save_dir}/pre_post_attention_layernorm_activation_remain.pt')
-    # torch.save(pre_down_proj_activation_forget, f'{activation_save_dir}/pre_down_proj_activation_forget.pt')
-    # torch.save(pre_down_proj_activation_remain, f'{activation_save_dir}/pre_down_proj_activation_remain.pt')
-
-    return (
-        post_block_activation_forget,
-        post_block_activation_remain,
-        pre_post_attention_layernorm_activation_forget,
-        pre_post_attention_layernorm_activation_remain,
-        pre_down_proj_activation_forget,
-        pre_down_proj_activation_remain,
-    )
-
-
-def load_activations():
-    activation_save_dir = "unlearning/activations_cache/"
-    post_block_activation_forget = torch.load(
-        f"{activation_save_dir}/post_block_activation_forget.pt"
-    )
-    post_block_activation_remain = torch.load(
-        f"{activation_save_dir}/post_block_activation_remain.pt"
-    )
-    pre_post_attention_layernorm_activation_forget = torch.load(
-        f"{activation_save_dir}/pre_post_attention_layernorm_activation_forget.pt"
-    )
-    pre_post_attention_layernorm_activation_remain = torch.load(
-        f"{activation_save_dir}/pre_post_attention_layernorm_activation_remain.pt"
-    )
-    pre_down_proj_activation_forget = torch.load(
-        f"{activation_save_dir}/pre_down_proj_activation_forget.pt"
-    )
-    pre_down_proj_activation_remain = torch.load(
-        f"{activation_save_dir}/pre_down_proj_activation_remain.pt"
-    )
-
     return (
         post_block_activation_forget,
         post_block_activation_remain,
