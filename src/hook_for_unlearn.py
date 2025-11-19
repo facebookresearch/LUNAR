@@ -155,7 +155,7 @@ def get_activations(
         tokenize_instructions_fn=model_base.tokenize_instructions_fn,
         layer_idx=layer_idx,
         batch_size=batch_size_forget,
-    )  # [n_forget_dataset, positions, d_model] => [20, 4096]
+    )
 
     post_block_activation_remain = get_post_block_activation(
         model=model_base.model,
@@ -163,7 +163,7 @@ def get_activations(
         tokenize_instructions_fn=model_base.tokenize_instructions_fn,
         layer_idx=layer_idx,
         batch_size=batch_size_remain,
-    )  # [n_retain_dataset, positions, d_model] => [380, 4096]
+    )
 
     # get pre post attention layernorm activations
     pre_post_attention_layernorm_activation_forget = (
