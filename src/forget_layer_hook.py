@@ -157,25 +157,8 @@ def perturb_post_block_activations_forget(
     post_block_activation_forget, direction, coeff=+2.0
 ):
     """perturb the output_activations of forget data. but only perturb the last token"""
-
-    ### post_block_activation_forget: list of n_sample tensors [1, seq_length, d_model]
-    ### here we set batch size = 1
     for i in range(len(post_block_activation_forget)):
         post_block_activation_forget[i] += coeff * direction
-
-    # direction = direction / (direction.norm(dim=-1, keepdim=True) + 1e-8)
-    # direction = direction.to(post_block_activation_forget)
-
-    # n_sample = post_block_activation_forget.shape[0]
-    # for i in range(n_sample):
-    #     post_block_activation_forget[i, :] -= (post_block_activation_forget[i, :] @ direction).unsqueeze(-1) * direction
-    #     post_block_activation_forget[i, :] += coeff * direction
-
-    # forget_activation= torch.sum(fwd_post_block_activation_forget * direction, dim=-1, keepdim=True) * direction
-    # harmful_mean_activations_recenter = torch.sum(harmful_mean_activations * direction, dim=-1, keepdim=True) * direction
-
-    # #fwd_post_block_activation_forget = fwd_post_block_activation_forget + forget_activation # + harmful_mean_activations_recenter
-    # fwd_post_block_activation_forget = fwd_post_block_activation_forget + direction
 
     return post_block_activation_forget
 

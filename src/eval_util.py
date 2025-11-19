@@ -93,22 +93,19 @@ def get_all_evals(
         gt_loss = get_batch_loss(outputs.logits, batch["labels"])
         probabilities = torch.softmax(outputs.logits, dim=-1)
 
-        # Find the maximum probability and its corresponding token index for each position in the sequence
-        # log the probaility of outputs
         max_probs, _ = torch.max(probabilities, dim=-1)
-        
+
 
         num_token_gt = (batch["labels"] != -100).sum(-1)
-        #num_token_gt = num_token_gt.tolist()
         num_token_gt_list.extend(num_token_gt)
         probs = [sum(max_probs[idx, :v]).item() for idx, v in enumerate(num_token_gt)]
         probs = [p / v.item() for p, v in zip(probs, num_token_gt)]
-        
+
 
         eval_logs["gt_loss_per_token"] = (eval_logs.get("gt_loss_per_token", []) + (gt_loss / num_token_gt).float().cpu().numpy().tolist())
         eval_logs["gt_loss"] = eval_logs.get("gt_loss", []) + gt_loss.tolist()
         eval_logs["probs"] = eval_logs.get("probs", []) + probs
-    
+
     eval_logs["num_token_gt"] = (eval_logs.get("num_token_gt", []) + num_token_gt.tolist())
     eval_logs["mrr"] = eval_logs.get("mrr", []) + mrr_list
     eval_logs["hit_rate"] = eval_logs.get("hit_rate", []) + hit_rate_list
@@ -120,7 +117,7 @@ def get_all_evals(
     else:
          eval_logs["es_score"] = eval_logs.get("es_score", [])
     eval_logs["generated_text"] = list(zip(input_strings, gen_outputs, ground_truths))
-    
+
     return eval_logs
 
 
@@ -200,7 +197,7 @@ def run_generation(cfg, batch, model, tokenizer, fwd_pre_hooks=[], fwd_hooks=[],
         )
         scores = (
             out.scores
-        )  # tuple of tensors (for each generation step) with shape [16, 32000]
+        )
         loss = output.loss
         perplexity = math.exp(loss.item())
     # compute the ES score
@@ -214,8 +211,8 @@ def compute_ES(
     cfg,
     model,
     tokenizer,
-    inputs,         # shape  [B, L_prompt]  (already on GPU)
-    targets,             # len(targets) == B
+    inputs,
+    targets,
     max_new_tokens: int = 256,
 ) -> List[float]:
     """
@@ -233,7 +230,6 @@ def compute_ES(
     for i in range(B):
         x_ids: List[int] = inputs.input_ids[i].tolist()
 
-        # strip *leading* padding tokens (left-padding was used)
         while x_ids and x_ids[0] == pad_id:
             x_ids.pop(0)
 
@@ -269,11 +265,8 @@ def compute_ES(
                 )
             seq_ids = out[0][len(ctx_ids): len(ctx_ids) + (L - k)]
             strs = tokenizer.decode(seq_ids.tolist(), skip_special_tokens=True)
-            # print(f"generated output is {strs}")
-            # print(f"grountruth is {targets[i]}")
             gen_ids = out[0][len(ctx_ids): len(ctx_ids) + (L - k)].tolist()
             if tokenizer.decode(gen_ids, skip_special_tokens=True) == tokenizer.decode(y_ids[k:], skip_special_tokens=True):
-            #if gen_ids == y_ids[k:]:          # exact remainder match
                 es_scores.append(1.0 - k / L)
                 found = True
                 break
@@ -303,8 +296,7 @@ def compute_MRR(scores, gt, tokenizer):
         logits, dim=-1
     )  # torch.Size([16, 512, 32000])
     for i in range(len(gt)):
-        probs_per_gt = probabilities[i]  # torch.Size([512, 32000])
-        # reciprocal rank for each ground truth
+        probs_per_gt = probabilities[i]
         reciprocal_ranks = []
         hit_check = []
 
@@ -390,7 +382,6 @@ def custom_evaluate(
         output_es_score=output_es_score,
     )
 
-    # get the average of the input instead of full list
     for k, v in eval_logs.items():
         if not k == "generated_text":
             if len(v) > 0:

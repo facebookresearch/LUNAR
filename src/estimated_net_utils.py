@@ -38,15 +38,15 @@ class EstimatedNet(torch.nn.Module):
 class LUNAR_LoRA_net(torch.nn.Module):
     def __init__(self, input_dim, output_dim, rank, pretrained_weight=None):
         super(LUNAR_LoRA_net, self).__init__()
-        
+
         # Define the original linear layer
         self.linear = torch.nn.Linear(input_dim, output_dim, bias=False)
-        
+
         # Initialize the linear layer's weight with the pretrained weight if provided
         if pretrained_weight is not None:
             with torch.no_grad():
                 self.linear.weight.copy_(pretrained_weight)
-        
+
         # Freeze the original linear layer's weights
         self.linear.weight.requires_grad = False
         if self.linear.bias is not None:
@@ -75,28 +75,6 @@ class LUNAR_LoRA_net(torch.nn.Module):
         del self.lora_B
 
 
-# Create a custom dataset and dataloader
-# class ActivationDataset(Dataset):
-#     def __init__(self, inputs, targets):
-#         self.inputs = inputs
-#         self.targets = targets
-#     def __len__(self):
-#         return self.inputs.size(0)
-#     def __getitem__(self, idx):
-#         return self.inputs[idx], self.targets[idx]
-
-# # class ActivationDataset_2layers(Dataset):
-# #     def __init__(self, inputs_1, targets_1, inputs_2, targets_2):
-# #         self.inputs_1 = inputs_1
-# #         self.targets_1 = targets_1
-# #         self.inputs_2 = inputs_2
-# #         self.targets_2 = targets_2
-# #     def __len__(self):
-# #         return self.inputs_1.size(0)
-# #     def __getitem__(self, idx):
-# #         return self.inputs_1[idx], self.targets_1[idx], self.inputs_2[idx], self.targets_2[idx]
-
-
 class ActivationDataset_multiple_layers(Dataset):
     def __init__(self, inputs_list, targets_list):
         self.inputs_list = inputs_list
@@ -111,81 +89,6 @@ class ActivationDataset_multiple_layers(Dataset):
             targets[idx] for targets in self.targets_list
         ]
 
-
-# ### Train Function
-# def train_separate(model,
-#           train_loader_forget,
-#           train_loader_remain,
-#           optimizer_forget,
-#           optimizer_remain,
-#           scheduler_forget,
-#           scheduler_remain,
-#           device,
-#           num_epochs=100):
-#     """
-#     Train a single layer fully connected network.
-#     """
-#     model.train()  # Set the model to training mode
-#     loss_fn = PerturbMatchLoss().to(device)
-
-#     for epoch in range(num_epochs):
-#         running_loss_forget = 0.0
-#         running_loss_remain = 0.0
-
-#         with tqdm(total=len(train_loader_forget), desc=f"Epoch [{epoch+1}/{num_epochs}]") as pbar:
-#             # Loop through the batches of the training data
-#             for inputs_forget, targets_forget in train_loader_forget:
-#                 inputs_forget = inputs_forget.to(device)
-#                 targets_forget = targets_forget.to(device)
-#                 optimizer_forget.zero_grad()  # Zero the gradients
-
-#                 # Forward pass
-#                 outputs = model(inputs_forget)
-#                 loss = loss_fn(outputs, targets_forget)
-
-#                 loss.backward()
-#                 optimizer_forget.step()
-
-#                 # Keep track of the running loss for the current epoch
-#                 running_loss_forget += loss.item()
-
-#                 # Update tqdm progress bar
-#                 pbar.update(1)
-#                 pbar.set_postfix(loss=loss.item())
-
-#             scheduler_forget.step()
-
-#         with tqdm(total=len(train_loader_remain), desc=f"Epoch [{epoch+1}/{num_epochs}]") as pbar:
-#             # Loop through the batches of the training data
-#             for inputs_remain, targets_remain in train_loader_remain:
-#                 inputs_remain = inputs_remain.to(device)
-#                 targets_remain = targets_remain.to(device)
-#                 optimizer_remain.zero_grad()  # Zero the gradients
-
-#                 # Forward pass
-#                 outputs = model(inputs_remain)
-#                 loss = loss_fn(outputs, targets_remain)
-
-#                 loss.backward()
-#                 optimizer_remain.step()
-
-#                 # Keep track of the running loss for the current epoch
-#                 running_loss_remain += loss.item()
-
-#                 # Update tqdm progress bar
-#                 pbar.update(1)
-#                 pbar.set_postfix(loss=loss.item())
-
-#             scheduler_remain.step()
-
-#         # Print the average loss for this epoch
-#         epoch_loss_forget = running_loss_forget / len(train_loader_forget)
-#         epoch_loss_remain = running_loss_remain / len(train_loader_remain)
-#         print(f"Epoch [{epoch+1}/{num_epochs}], Loss_forget: {epoch_loss_forget:.4f}")
-#         print(f"Epoch [{epoch+1}/{num_epochs}], Loss_remain: {epoch_loss_remain:.4f}")
-
-#     print("Training completed!")
-#     return model
 
 
 def train(model, train_loader, optimizer, scheduler, device, num_epochs=100):
@@ -229,60 +132,6 @@ def train(model, train_loader, optimizer, scheduler, device, num_epochs=100):
         print(f"Epoch [{epoch+1}/{num_epochs}], Loss: {epoch_loss:.4f}")
     print("Training completed!")
     return model
-
-
-# def train_2layers(
-#         model_1,
-#         model_2,
-#         train_loader,
-#         optimizer,
-#         scheduler,
-#         device,
-#         num_epochs=100):
-#     """
-#     Train a single layer fully connected network.
-#     """
-#     model_1.train()  # Set the model to training mode
-#     model_2.train()
-#     #loss_fn = PerturbMatchLoss_2layers().to(device)
-#     criterion = torch.nn.MSELoss()
-#     print(f'Running optimizer for model_1 and model_2 together......')
-#     for epoch in range(num_epochs):
-#         running_loss = 0.0
-#         with tqdm(total=len(train_loader), desc=f"Epoch [{epoch+1}/{num_epochs}]") as pbar:
-#             # Loop through the batches of the training data
-#             for input_1, target_1, input_2, target_2 in train_loader:
-#                 input_1 = input_1.to(device)
-#                 target_1 = target_1.to(device)
-#                 input_2 = input_2.to(device)
-#                 target_2 = target_2.to(device)
-
-#                 optimizer.zero_grad()  # Zero the gradients
-
-#                 # Forward pass
-#                 outputs_1 = model_1(input_1)
-#                 outputs_2 = model_2(input_2)
-
-#                 loss = criterion(outputs_1, target_1) + criterion(outputs_2, target_2)
-
-#                 loss.backward()
-#                 optimizer.step()
-
-#                 # Keep track of the running loss for the current epoch
-#                 running_loss += loss.item()
-
-#                 # Update tqdm progress bar
-#                 pbar.update(1)
-#                 pbar.set_postfix(loss=loss.item())
-
-#             if scheduler is not None:
-#                 scheduler.step()
-
-#         # Print the average loss for this epoch
-#         epoch_loss = running_loss / len(train_loader)
-#         print(f"Epoch [{epoch+1}/{num_epochs}], Loss: {epoch_loss:.4f}")
-#     print("Training completed!")
-#     return model_1, model_2
 
 
 def train_multiple_layers(

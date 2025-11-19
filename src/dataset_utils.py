@@ -74,7 +74,6 @@ def split_raw_dataset_for_forget(
             torch_format_dataset,
             batch_size=1,
             shuffle=False,
-            # collate_fn=custom_question_collator
         )
 
         return torch_format_dataset
@@ -141,7 +140,7 @@ def prepare_trainset_raw(
 
     concat_forget_input = torch.cat(
         [activation.squeeze(0) for activation in inputs_forget], dim=0
-    ) 
+    )
     concat_forget_target = torch.cat(
         [activation.squeeze(0) for activation in targets_forget], dim=0
     )
@@ -200,7 +199,7 @@ def prepare_trainset(
         forget_target_list.append(concat_forget_target)
         remain_input_list.append(input_remain)
         remain_target_list.append(target_remain)
-    
+
     return (
         forget_input_list,
         forget_target_list,
@@ -220,7 +219,7 @@ def prepare_estimated_net_list(
         for layer_idx in layer_idx_list:
             init_weight_list.append(
                 model_base.model_block_modules[layer_idx].mlp.down_proj.weight.clone()
-            )  # torch.Size([4096, 11008])
+            )
     else:
         print(
             "initialize the estimated net list with the previous unlearning MLP weight"
@@ -254,7 +253,7 @@ def prepare_estimated_net_lora_list(
         for layer_idx in layer_idx_list:
             init_weight_list.append(
                 model_base.model_block_modules[layer_idx].mlp.down_proj.weight.clone()
-            )  # torch.Size([4096, 11008])
+            )
     else:
         print(
             "initialize the estimated net list with the previous unlearning MLP weight"

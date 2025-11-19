@@ -22,7 +22,7 @@ import torch.optim as optim
 from omegaconf import DictConfig, OmegaConf
 from torch.utils.data import ConcatDataset, DataLoader
 
-# ---- Project imports (kept as-is) -------------------------------------------
+# ---- Project imports -------------------------------------------
 from src.dataset_utils import (
     load_dataset_to_get_direction,
     prepare_estimated_net_list,

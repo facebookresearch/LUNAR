@@ -40,7 +40,6 @@ def get_mean_activations(
     n_samples = len(instructions)
     d_model = model.config.hidden_size
 
-    # we store the mean activations in high-precision to avoid numerical issues
     mean_activations = torch.zeros(
         (n_positions, n_layers, d_model), dtype=torch.float64, device=model.device
     )
@@ -112,8 +111,6 @@ def generate_directions(
     harmless_instructions,
     artifact_dir=None,
 ):
-    # if not os.path.exists(artifact_dir):
-    #    os.makedirs(artifact_dir)
 
     mean_diffs = get_mean_diff(
         model_base.model,
@@ -132,20 +129,15 @@ def generate_directions(
     )
     assert not mean_diffs.isnan().any()
 
-    # torch.save(mean_diffs, f"{artifact_dir}/mean_diffs.pt")
-
     return mean_diffs
 
 
-########### below only for trying unverfiable dataset
 def generate_directions_2models(
     model_base_pretrained: ModelBase,
     model_base_ft: ModelBase,
     harmful_instructions,
     harmless_instructions,
 ):
-    # if not os.path.exists(artifact_dir):
-    #    os.makedirs(artifact_dir)
 
     mean_diffs = get_mean_diff_2models(
         model_base_pretrained.model,
@@ -165,46 +157,7 @@ def generate_directions_2models(
     )
     assert not mean_diffs.isnan().any()
 
-    # torch.save(mean_diffs, f"{artifact_dir}/mean_diffs.pt")
-
     return mean_diffs
-
-
-def get_mean_diff_2models(
-    model_pretrain,
-    model_ft,
-    tokenizer,
-    harmful_instructions,
-    harmless_instructions,
-    tokenize_instructions_fn,
-    block_modules: List[torch.nn.Module],
-    batch_size=32,
-    positions=[-1],
-):
-    mean_activations_harmful = get_mean_activations(
-        model_pretrain,  ### use pretrined model
-        tokenizer,
-        harmful_instructions,
-        tokenize_instructions_fn,
-        block_modules,
-        batch_size=batch_size,
-        positions=positions,
-    )
-    mean_activations_harmless = get_mean_activations(
-        model_ft,  # use ft model
-        tokenizer,
-        harmless_instructions,
-        tokenize_instructions_fn,
-        block_modules,
-        batch_size=batch_size,
-        positions=positions,
-    )
-
-    mean_diff: Float[Tensor, "n_positions n_layers d_model"] = (
-        mean_activations_harmful - mean_activations_harmless
-    )
-
-    return mean_diff
 
 
 def generate_candidate_directions(cfg, model_base, harmful_train, forget_train):
@@ -214,7 +167,6 @@ def generate_candidate_directions(cfg, model_base, harmful_train, forget_train):
         model_base,
         harmful_train,
         forget_train,
-        # artifact_dir=os.path.join(cfg.artifact_path(), "generate_directions")
     )
 
     return mean_diffs

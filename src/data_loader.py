@@ -39,17 +39,9 @@ def convert_raw_data_to_model_qa(tokenizer, max_length, question, answer, config
         new_question = QWEN_CHAT_TEMPLATE.format(instruction=question)
     elif configs.model_family == "llama2-7b-chat":
         new_question = LLAMA2_CHAT_TEMPLATE.format(instruction=question)
-    elif configs.model_family == "zephyr-7b":
-        new_question = ZEPHYR_CHAT_TEMPLATE.format(instruction=question)
     elif configs.model_family == "gemma-7b-it":
         new_question = GEMMA_CHAT_TEMPLATE.format(instruction=question)
     else:
-        # question_start_token =  configs.question_start_tag
-        # question_end_token = configs.question_end_tag
-        # answer_token = configs.answer_tag
-        # new_question = question_start_token + question + question_end_token
-        # new_answer = answer_token + answer
-        # full_text = new_question + new_answer
         raise ValueError(f"Invalid model_family")
 
     full_text = new_question + answer
@@ -105,8 +97,6 @@ def convert_raw_questions_to_model_questions(tokenizer, max_length, question, co
         new_question = GEMMA_CHAT_TEMPLATE.format(instruction=question)
     else:
         raise ValueError(f"Invalid model_family")
-
-    # new_question = question_start_token + question + question_end_token
 
     # Tokenize the question
     tokenizer.padding_side = "left"
@@ -201,7 +191,7 @@ class QuestionsDataset(Dataset):
         # Get the question from the dataset
         question = self.data[idx][
             self.qk
-        ]  # This fetches the question based on self.qk (usually "question")
+        ]
 
         # Tokenize the question only
         input_ids, attention_mask = convert_raw_questions_to_model_questions(
