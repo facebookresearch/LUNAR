@@ -28,7 +28,7 @@ def load_dataset_to_get_direction(
 
     # Load the harmful dataset
     if use_harmful:
-        harmful_file_path = os.path.join("dataset/splits", "harmful_train.json")
+        harmful_file_path = os.path.join("dataset/splits", "harmful.json")
         print(f'loading harmful dataset from {harmful_file_path}')
         with open(harmful_file_path, "r") as f:
             harmful_dataset = json.load(f)
