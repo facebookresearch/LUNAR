@@ -1,11 +1,13 @@
 # 🌗 LUNAR: LLM Unlearning via Neural Activation Redirection (NeurIPS 2025)
 
+📄 **Paper**: [Link](https://neurips.cc/virtual/2025/loc/san-diego/poster/115574)
+
 
 
 ## 🚀 Quickstart
 
 ### 1) Clone
-    git clone https://github.com/bill-shen-BS/LUNAR.git
+    git clone https://github.com/facebookresearch/LUNAR.git
     cd LUNAR
 
 ### 2) Create environment
